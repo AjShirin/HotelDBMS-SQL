@@ -57,6 +57,10 @@ public class Main  {
 				break;
 
 			case 2:
+				InsertHotels InsertHotelsObject = new InsertHotels();
+				InsertHotelsObject.Insert();
+				
+				menue();
 				
 				break;
 
