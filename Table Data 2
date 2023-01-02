@@ -1,0 +1,62 @@
+Table Name: Hotels
+---------------------------------- 
+id (Integer and Primary Key)     |
+hotel_name (String and not null) |
+hotel_location (String)          |
+created_date (Date and not null) |
+updated_date (Date)              |
+is_Active (Boolean and not null) |
+----------------------------------
+
+Table Name: Room_Type
+--------------------------------------
+id (Integer and Primary Key)         |
+room_type_name (String and not null) |
+created_date (Date)                  |
+updated_date (Date)                  |
+is_Active (Boolean and not null)     |
+--------------------------------------
+
+Table Name: Rooms
+-----------------------------------------------------------------
+id (Integer and Primary Key)                                    |
+room_type_id (Foriegn key with id column of Table: Room_Type)   |
+hotel_id (Foriegn key with id column of Table: Hotels)          |
+created_date (Date and not null)                                |
+updated_date (Date)                                             |
+is_Active (Boolean and not null)                                |
+-----------------------------------------------------------------
+
+Table Name: Guests
+-----------------------------------------------------------------
+id (Integer and Primary Key)                                    | 
+guest_name (String and not null)                                |
+guest_phone (String and not null)                               |
+guest_accompanying_members (int and not null)                   |
+guest_payment_amount (int and not null)                         |
+room_id (Foriegn key with id column of Table: Rooms)            |
+hotel_id (Foriegn key with id column of Table: Hotels)          |
+created_date (Date and not null)                                |
+updated_date (Date)                                             |
+is_Active (Boolean and not null)                                |
+-----------------------------------------------------------------
+
+Table Name: Employee_Type
+-----------------------------------------------------------------
+id (Integer and Primary Key)                                    |
+employee_type_name (String and not null)                        |
+created_date (Date and not null)                                |
+updated_date (Date)                                             |
+is_Active (Boolean and not null)                                |
+-----------------------------------------------------------------
+
+
+Table Name: Employees
+-----------------------------------------------------------------------
+id (Integer and Primary Key)                                          |
+employee_type_id (Foriegn key with id column of Table: Employee_Type) |
+room_id (Foriegn key with id column of Table: Hotels)                 |
+created_date (Date and not null)                                      |
+updated_date (Date)                                                   |
+is_Active (Boolean and not null)                                      |
+-----------------------------------------------------------------------
