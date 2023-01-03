@@ -67,8 +67,11 @@ public class Main  {
 
 			case 3:
 				// Delete a record
-				DeleteRecord DeleteRecordObject = new DeleteRecord();
-				DeleteRecordObject.deleteById();
+//				DeleteRecord DeleteRecordObject = new DeleteRecord();
+//				DeleteRecordObject.deleteById();
+				
+				UpdateByID UpdateByIDObject = new UpdateByID();
+				UpdateByIDObject.makeIsActiveFalseById();
 				menue();
 				break;
 
@@ -78,9 +81,7 @@ public class Main  {
 				break;
 				
 			case 5:
-				UpdateByID UpdateByIDObject = new UpdateByID();
-				UpdateByIDObject.makeIsActiveFalseById();
-				menue();
+				
 
 			case 6:
 				

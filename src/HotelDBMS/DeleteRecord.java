@@ -27,8 +27,9 @@ public class DeleteRecord {
 			System.out.println("Enter the ID Number you want to Delete :");
 			int userInputID = sc.nextInt();
 			String SQL = "DELETE FROM Hotels WHERE id = '"+userInputID+"'";
+			System.out.println("Record deleted Successfully!! :)");
 			ResultSet rs = st.executeQuery(SQL);
-			//System.out.println("Record deleted Successfully!! :)");
+			
 		}
 		catch(Exception ex) {
 			System.err.println(ex);
