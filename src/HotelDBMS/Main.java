@@ -58,7 +58,7 @@ public class Main  {
 
 			case 2:
 				InsertHotels InsertHotelsObject = new InsertHotels();
-				InsertHotelsObject.Insert();
+				InsertHotelsObject.insertIntoTable();
 				
 				menue();
 				
