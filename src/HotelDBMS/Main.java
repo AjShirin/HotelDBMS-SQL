@@ -28,6 +28,7 @@ public class Main  {
 			int Menue = sc.nextInt();
 			switch (Menue) {
 			case 1:
+				
 				//object chaining for creating hotel table 
 				CreateHotelTable createHotelTableObject = new CreateHotelTable();
 				createHotelTableObject.createHotelTable();
@@ -65,7 +66,10 @@ public class Main  {
 				break;
 
 			case 3:
-				
+				// Delete a record
+				DeleteRecord DeleteRecordObject = new DeleteRecord();
+				DeleteRecordObject.deleteById();
+				menue();
 				break;
 
 			case 4:
@@ -74,7 +78,9 @@ public class Main  {
 				break;
 				
 			case 5:
-				
+				UpdateByID UpdateByIDObject = new UpdateByID();
+				UpdateByIDObject.makeIsActiveFalseById();
+				menue();
 
 			case 6:
 				

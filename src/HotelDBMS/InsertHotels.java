@@ -39,7 +39,7 @@ public class InsertHotels {
 				// Creating object of date class
 				// Date d1 = new Date();
 
-				System.out.println(name);
+				// System.out.println(name);
 				boolean numberToAdd = true;
 				pstmt.setInt(1, i);
 				pstmt.setString(2, name);
