@@ -18,7 +18,8 @@ public class Main {
 		System.out.println("9. Delete Hotel record by ID                                   |");
 		System.out.println("10. Get Hotel record by ID                                     |");
 		System.out.println("11. Update Hotel record by ID                                  |");
-		System.out.println("12. Exit System                                                |");
+		System.out.println("12. Insert data Into Employee table                            |");
+		System.out.println("13. Exit System                                                |");
 		System.out.println("_______________________________________________________________|");
 	}
 
@@ -57,7 +58,7 @@ public class Main {
 				CreateEmployeeTypeTableObject.createEmployeeTypeTable();
 
 				// object chaining for creating employee table
-				createEmployeesTable createEmployeesTableObject = new createEmployeesTable();
+				EmployeesTable createEmployeesTableObject = new EmployeesTable();
 				createEmployeesTableObject.createEmployeesTable();
 
 				menue();
@@ -161,8 +162,17 @@ public class Main {
 
 				break;
 
-			// Exit the System
+			// Insert data Into Employee table
 			case 12:
+				EmployeesTable insertValuesIntoEmployeesObject = new EmployeesTable();
+				insertValuesIntoEmployeesObject.insertIntoEmployeeTable();
+
+				menue();
+
+				break;
+
+			// Exit the System
+			case 13:
 				System.out.println("Exiting The System Bye See you Again :)!...");
 				System.exit(0);
 

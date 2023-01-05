@@ -2,26 +2,44 @@ package HotelDBMS;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Random;
 import java.util.Scanner;
 
-public class InsertHotels {
+public class EmployeesTable {
 	static final String DB_URL = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 	static final String USER = "sa";
 	static final String PASS = "root";
 
-	public static void insertIntoTable(int number) throws Throwable {
+	static void createEmployeesTable() throws IOException {
+		// Open a connection
+		try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+				Statement stmt = conn.createStatement();) {
+			String createEmployeeTable = "CREATE TABLE Employees " + "(id INTEGER PRIMARY KEY, "
+					+ " employee_type_id INTEGER FOREIGN KEY REFERENCES Employee_Type(id), "
+					+ " room_id INTEGER FOREIGN KEY REFERENCES Rooms(id), " + " created_date date NOT NULL, "
+					+ " updated_date date, " + " is_Active bit NOT NULL)";
 
-		String sql = "INSERT INTO Hotels (id, hotel_name, hotel_location,created_date,updated_date,is_Active) values (?,?,?,?,?,?)";
+			stmt.executeUpdate(createEmployeeTable);
+			System.out.println("Created table Successfully...");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void insertIntoEmployeeTable() throws Throwable {
+
+		String sql = "INSERT INTO Hotels (id, employee_type_id, room_id,created_date,updated_date,is_Active) values (?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		Scanner sc = new Scanner(System.in);
-		//System.out.println("Enter the number of data you want to add:");
-		//int userInput = sc.nextInt();
+		System.out.println("Enter number of records you want to add :");
+		int number = sc.nextInt();
 
 		try {
 			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
@@ -32,19 +50,12 @@ public class InsertHotels {
 			pstmt = (PreparedStatement) con.prepareStatement(sql);
 
 			for (int i = 1; i <= number; i++) {
-				Random rn = new Random();
-				Integer randomNumber = (Integer) rn.nextInt(100000);
-				String name = "Shirin" + randomNumber;
-				String location = "Ruwii" + randomNumber;
-				// Creating object of date class
-				// Date d1 = new Date();
-
-				// System.out.println(name);
+				
 				boolean numberToAdd = true;
 				pstmt.setInt(1, i);
-				pstmt.setString(2, name);
-				pstmt.setString(3, location);
-//	                pstmt.setDate(4, d1);
+				pstmt.setInt(2, i);
+				pstmt.setInt(3, i);
+				
 				pstmt.setDate(4, new Date(System.currentTimeMillis()));
 				pstmt.setDate(5, new Date(System.currentTimeMillis()));
 
@@ -56,7 +67,5 @@ public class InsertHotels {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-	}
-}
-
-
+	}	
+}// close class
