@@ -1,34 +1,43 @@
 Create individual/seperate classes for each table
 
 Every class should have functions to:
+________________________
+Done
 public static readFromTable(){
 	take input from user to see how many users you have to print on console
 	use SELECT query and ResultSets for showing
 	
 	}
-	
+	________________________
+Done
 public static getById(){
 	take id input from the user
 	print on console
 	use SELECT query and ResultSets for showing
 	}
+________________________
+Done
 
 public static updateById(){
 	take id input from the user
 	print on console
 	use Update query and ResultSets for showing
 	}
-
+________________________
+Done
 public static deleteById() {
 	take id input from the user
 	use Delete query
 	}
-
+________________________
+Done
 public static makeIsActiveFalseById() {
 	take id input from the user
 	use Update query and just update 'is_Active' column
 	}
 
+________________________
+Done
 public insertIntoTable(){
 	take input from user how many number of rows are to be inserted
 	input data in database using INSERT query in a loop
