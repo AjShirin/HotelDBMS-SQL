@@ -48,9 +48,8 @@ public class ActivationUpdate {
 			System.out.println("Enter the ID Number you want to Deactivate :");
 			int userInputID = sc.nextInt();
 			String SQL = "UPDATE Hotels SET is_Active = 0  WHERE id <=" + userInputID;
-			System.out.println("The record has been deactivated successfully :) !!");
-			ResultSet rs = st.executeQuery(SQL);
 			System.out.println("10 Record Deactivated Successfully!! :)");
+			ResultSet rs = st.executeQuery(SQL);
 		} catch (Exception ex) {
 			System.err.println(ex);
 		}
@@ -75,4 +74,26 @@ public class ActivationUpdate {
 			System.err.println(ex);
 		}
 	} // End of makeIsActiveTrueByIdTen Function
+	
+	static void makeRoomTypeIsActiveFalseById() throws IOException {
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+			DriverManager.registerDriver(driver);
+
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement st = con.createStatement();
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the ID Number you want to Deactivate :");
+			int userInputID = sc.nextInt();
+			String SQLRT = "UPDATE Room_Type SET is_Active = 0  WHERE id =" + userInputID;
+			System.out.println("The Record Deactivated Successfully :) !!");
+			ResultSet rs = st.executeQuery(SQLRT);
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}// End of makeIsActiveFalseById Function
+	
+	
 } // End of ActivationUpdate Class
