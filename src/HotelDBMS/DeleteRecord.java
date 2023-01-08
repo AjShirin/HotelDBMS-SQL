@@ -23,18 +23,37 @@ public class DeleteRecord {
 
 			con = DriverManager.getConnection(DB_URL, USER, PASS);
 			Statement st = con.createStatement();
-			Scanner sc = new Scanner (System.in);
+			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter the ID Number you want to Delete :");
 			int userInputID = sc.nextInt();
-			String SQL = "DELETE FROM Hotels WHERE id = '"+userInputID+"'";
-			System.out.println("Record deleted Successfully!! :)");
+			String SQL = "DELETE FROM Hotels WHERE id = '" + userInputID + "'";
+			System.out.println("Record :" + userInputID + " " + "deleted Successfully!! :)");
 			ResultSet rs = st.executeQuery(SQL);
-			
-		}
-		catch(Exception ex) {
+
+		} catch (Exception ex) {
 			System.err.println(ex);
 		}
 	}// End of deleteHotelById Function
+
+	static void deleteRoomTypeById() throws IOException {
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+			DriverManager.registerDriver(driver);
+
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement st = con.createStatement();
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the ID Number you want to Delete :");
+			int userInputID2 = sc.nextInt();
+			String SQL2 = "DELETE FROM Room_Type WHERE id = '" + userInputID2 + "'";
+			System.out.println("Record : " + userInputID2 + " " + "deleted From Room_Type Table Successfully!! :)");
+			ResultSet rs = st.executeQuery(SQL2);
+
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}// End of deleteRoomTypeById Function
+
 }// End of Delete Record Function
-		
-	    

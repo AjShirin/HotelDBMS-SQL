@@ -20,8 +20,7 @@ public class Main {
 		System.out.println("11. Make first 10 hotels 'is_Active' = True                    |");
 		System.out.println("********Room Type********                                      |");
 		System.out.println("12. Records in  Room Type                                      |");
-//		System.out.println("3. Insert 1 hotel                                              |");
-//		System.out.println("4. Delete Hotel Record By ID                                   |");
+		System.out.println("13. Delete Room Type Record By ID                              |");
 //		System.out.println("5. Print 10 hotels                                             |");
 //		System.out.println("6. Print hotel information by user input                       |");
 //		System.out.println("7. Update Hotel record by ID                                   |");
@@ -70,24 +69,26 @@ public class Main {
 			case 2:
 				InsertValues insertHotelsObject = new InsertValues();
 				insertHotelsObject.insertIntoHotelTable(10000);
+				
 				menue();
-
 				break;
 
 			// Insert 1 hotel
 			case 3:
 				InsertValues insertHotelsObject1 = new InsertValues();
 				insertHotelsObject1.insertIntoHotelTable(1);
+				
 				menue();
-
 				break;
 
-			// Delete Record By ID
+			// Delete Hotel Record By ID
 			case 4:
 				DeleteRecord DeleteRecordObject = new DeleteRecord();
 				DeleteRecordObject.deleteHotelById();
 
+				menue();
 				break;
+				
 
 			// Print Hotel 10 Records Only
 			case 5:
@@ -154,16 +155,15 @@ public class Main {
 
 				menue();
 				break;
-//
-//			// Delete Hotel record by ID
-//			case 9:
-//				DeleteRecord deleteHotelRecordObject = new DeleteRecord();
-//				deleteHotelRecordObject.deleteById();
-//
-//				menue();
-//
-//				break;
-//
+
+			// Delete Room Type record by ID
+			case 13:
+				DeleteRecord deleteRoomTypeRecordObject = new DeleteRecord();
+				deleteRoomTypeRecordObject.deleteRoomTypeById();
+
+				menue();
+				break;
+
 
 //
 //			// Update Hotel record by ID
