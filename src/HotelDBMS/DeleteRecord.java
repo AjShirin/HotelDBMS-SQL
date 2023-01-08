@@ -14,7 +14,7 @@ public class DeleteRecord {
 	static final String USER = "sa";
 	static final String PASS = "root";
 
-	static void deleteById() throws IOException {
+	static void deleteHotelById() throws IOException {
 		Connection con = null;
 		try {
 			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
@@ -34,7 +34,7 @@ public class DeleteRecord {
 		catch(Exception ex) {
 			System.err.println(ex);
 		}
-	}
-}
+	}// End of deleteHotelById Function
+}// End of Delete Record Function
 		
 	    

@@ -26,15 +26,15 @@ public class ActivationUpdate {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter the ID Number you want to Deactivate :");
 			int userInputID = sc.nextInt();
-			String SQL = "UPDATE Hotels SET is_Active = 'false' " + "WHERE id ='" + userInputID + "'";
+			String SQL = "UPDATE Hotels SET is_Active = 0  WHERE id =" + userInputID;
 			System.out.println("The record has been deactivated successfully :) !!");
 			ResultSet rs = st.executeQuery(SQL);
-			// System.out.println("Record deleted Successfully!! :)");
+			System.out.println("Record Deactivated Successfully!! :)");
 		} catch (Exception ex) {
 			System.err.println(ex);
 		}
-	}
-	
+	}// End of makeIsActiveFalseById Function
+
 	static void makeIsActiveFalseByIdTen() throws IOException {
 		Connection con = null;
 		try {
@@ -47,15 +47,15 @@ public class ActivationUpdate {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter the ID Number you want to Deactivate :");
 			int userInputID = sc.nextInt();
-			String SQL = "UPDATE Hotels SET is_Active = 'false' " + "WHERE id <='" + userInputID + "'";
+			String SQL = "UPDATE Hotels SET is_Active = 0  WHERE id <=" + userInputID;
 			System.out.println("The record has been deactivated successfully :) !!");
 			ResultSet rs = st.executeQuery(SQL);
-			// System.out.println("Record deleted Successfully!! :)");
+			System.out.println("10 Record Deactivated Successfully!! :)");
 		} catch (Exception ex) {
 			System.err.println(ex);
 		}
-	}
-	
+	} // End of makeIsActiveFalseByIdTen Function
+
 	static void makeIsActiveTrueByIdTen() throws IOException {
 		Connection con = null;
 		try {
@@ -66,14 +66,13 @@ public class ActivationUpdate {
 			con = DriverManager.getConnection(DB_URL, USER, PASS);
 			Statement st = con.createStatement();
 			Scanner sc = new Scanner(System.in);
-			System.out.println("Enter the ID Number you want to Deactivate :");
+			System.out.println("Enter the ID Number you want to Activate :");
 			int userInputID = sc.nextInt();
-			String SQL = "UPDATE Hotels SET is_Active = 'True' " + "WHERE id <='" + userInputID + "'";
-			System.out.println("The record has been deactivated successfully :) !!");
+			String SQL = "UPDATE Hotels SET is_Active = 1  WHERE id <=" + userInputID;
+			System.out.println("10 Record Activated Successfully!! :)");
 			ResultSet rs = st.executeQuery(SQL);
-			// System.out.println("Record deleted Successfully!! :)");
 		} catch (Exception ex) {
 			System.err.println(ex);
 		}
-	}
-}
+	} // End of makeIsActiveTrueByIdTen Function
+} // End of ActivationUpdate Class

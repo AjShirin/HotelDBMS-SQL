@@ -11,12 +11,12 @@ import java.sql.Statement;
 import java.util.Random;
 import java.util.Scanner;
 
-public class RecordUpdate {
+public class UpdateRecord {
 	static final String DB_URL = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 	static final String USER = "sa";
 	static final String PASS = "root";
 
-	static void updateById() throws IOException {
+	static void updateHotelById() throws IOException {
 
 		String sql = "UPDATE Hotels SET hotel_name = ?, hotel_location = ?,created_date = ?, updated_date = ? WHERE id = ?";
 
@@ -64,5 +64,5 @@ public class RecordUpdate {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-	}
-}
+	} // End of updateHotelById Function
+}// End of UpdateRecord Class

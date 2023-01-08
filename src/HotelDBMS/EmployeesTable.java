@@ -20,9 +20,9 @@ public class EmployeesTable {
 		// Open a connection
 		try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 				Statement stmt = conn.createStatement();) {
-			String createEmployeeTable = "CREATE TABLE Employees " + "(id INTEGER PRIMARY KEY, "
+			String createEmployeeTable = "CREATE TABLE Employees " + "(id INTEGER PRIMARY KEY IDENTITY(1,1), "
 					+ " employee_type_id INTEGER FOREIGN KEY REFERENCES Employee_Type(id), "
-					+ " room_id INTEGER FOREIGN KEY REFERENCES Rooms(id), " + " created_date date NOT NULL, "
+					+ " room_type_id INTEGER FOREIGN KEY REFERENCES Rooms(id), " + " created_date date NOT NULL, "
 					+ " updated_date date, " + " is_Active bit NOT NULL)";
 
 			stmt.executeUpdate(createEmployeeTable);
@@ -34,7 +34,7 @@ public class EmployeesTable {
 	
 	public static void insertIntoEmployeeTable() throws Throwable {
 
-		String sql = "INSERT INTO Hotels (id, employee_type_id, room_id,created_date,updated_date,is_Active) values (?,?,?,?,?,?)";
+		String sql = "INSERT INTO Employees values (?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		Scanner sc = new Scanner(System.in);
@@ -52,14 +52,13 @@ public class EmployeesTable {
 			for (int i = 1; i <= number; i++) {
 				
 				boolean numberToAdd = true;
-				pstmt.setInt(1, i);
-				pstmt.setInt(2, i);
-				pstmt.setInt(3, i);
 				
+				pstmt.setInt(2, i);
+				
+				pstmt.setDate(3, new Date(System.currentTimeMillis()));
 				pstmt.setDate(4, new Date(System.currentTimeMillis()));
-				pstmt.setDate(5, new Date(System.currentTimeMillis()));
 
-				pstmt.setBoolean(6, numberToAdd);
+				pstmt.setBoolean(5, numberToAdd);
 				pstmt.executeUpdate();
 			}
 

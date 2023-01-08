@@ -14,7 +14,7 @@ public class PrintTable {
 	static final String USER = "sa";
 	static final String PASS = "root";
 
-	public static void readFromTable(int number) throws Throwable {
+	public static void readFromHotelTable(int number) throws Throwable {
 
 		int count = 0;
 		String sql = "SELECT * FROM Hotels";
@@ -45,7 +45,7 @@ public class PrintTable {
 		} catch (Exception e) {
 			System.err.println(e);
 		}
-	}
+	} // End of readFromHotel Function
 
 	public static void readFromTableByUser() throws Throwable {
 
@@ -84,5 +84,37 @@ public class PrintTable {
 		} catch (Exception e) {
 			System.err.println(e);
 		}
-	}
-}
+	} // End of readFromTableByUser Function
+
+	public static void getHotelById() {
+
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+			DriverManager.registerDriver(driver);
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement st = con.createStatement();
+			Scanner sa = new Scanner(System.in);
+			System.out.println("Enter ID  that you want search for ? ");
+			int userInputID = sa.nextInt();
+			int count = 0;
+			String sql = "select * from Hotels where id='" + userInputID + "'";
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next() && count <= userInputID) {
+				int id = rs.getInt(1);
+				String hotel_name = rs.getString(2);
+				String hotel_location = rs.getString(3);
+				Date create_date = rs.getDate(4);
+				Date update_date = rs.getDate(5);
+				String is_Active = rs.getString(6);
+				System.out.println("Id :" + id + "||" + " " + "Hotel Name :" + hotel_name + "||" + " "
+						+ "Hotel Location :" + hotel_location + "||" + " " + "Created date is :" + create_date + "||"
+						+ " " + "Updated date is :" + update_date + "||" + "\n " + "The activation of the user is: "
+						+ is_Active);
+				count++;
+			}
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+	}// End OF getHotelById Function
+}// End of PrintTable Class
