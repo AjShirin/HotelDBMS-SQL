@@ -117,4 +117,33 @@ public class PrintTable {
 			System.err.println(e);
 		}
 	}// End OF getHotelById Function
+	public static void printRoomTypeById() {
+
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+			DriverManager.registerDriver(driver);
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement st = con.createStatement();
+			Scanner sa = new Scanner(System.in);
+			System.out.println("Enter ID  that you want search for ? ");
+			int userInputIDRT = sa.nextInt();
+			int count = 0;			
+			String sqlRT = "select * from Room_Type where id='" + userInputIDRT + "'";
+			ResultSet rs = st.executeQuery(sqlRT);
+			while (rs.next() && count <= userInputIDRT) {
+				int id = rs.getInt(1);
+				String room_type_name = rs.getString(2);
+				Date create_date = rs.getDate(3);
+				Date update_date = rs.getDate(4);
+				String is_Active = rs.getString(5);
+				System.out.println("Id :" + id + "||" +  " " + "Created date is :" + create_date + "||"
+						+ " " + "Updated date is :" + update_date + "||" + "\n " + "The activation of the user is: "
+						+ is_Active);
+				count++;
+			}
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+	}// End OF printRoomTypeById Function
 }// End of PrintTable Class

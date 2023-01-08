@@ -19,10 +19,9 @@ public class Main {
 		System.out.println("10. Make first 10 hotels 'is_Active' = False                   |");
 		System.out.println("11. Make first 10 hotels 'is_Active' = True                    |");
 		System.out.println("********Room Type********                                      |");
-		System.out.println("12. Records in  Room Type                                      |");
+		System.out.println("12. Inser Records in  Room Type                                |");
 		System.out.println("13. Delete Room Type Record By ID                              |");
-//		System.out.println("5. Print 10 hotels                                             |");
-//		System.out.println("6. Print hotel information by user input                       |");
+		System.out.println("14. Print Room Type information by user input                  |");
 //		System.out.println("7. Update Hotel record by ID                                   |");
 //		System.out.println("8. Get Hotel record by ID                                      |");
 //		System.out.println("9. Make 'is_Active'=False by selecting the ID with user Input  |");
@@ -122,22 +121,20 @@ public class Main {
 				menue();
 				break;
 
-//			// Make 'is_Active'=False by selecting the ID with user Input
+			// Make 'is_Active'=False by selecting the ID with user Input
 			case 9:
 				ActivationUpdate UpdateByIDObject = new ActivationUpdate();
 				UpdateByIDObject.makeIsActiveFalseById();
 
 				menue();
-
 				break;
 
-//			// Make first 10 hotels 'is_Active' = False
+			// Make first 10 hotels 'is_Active' = False
 			case 10:
 				ActivationUpdate deactivateObject = new ActivationUpdate();
 				deactivateObject.makeIsActiveFalseByIdTen();
 
 				menue();
-
 				break;
 
 			// Make first 10 hotels 'is_Active' = True
@@ -164,17 +161,13 @@ public class Main {
 				menue();
 				break;
 
-
-//
-//			// Update Hotel record by ID
-//			case 11:
-//
-//				RecordUpdate updateByIDObject = new RecordUpdate();
-//				updateByIDObject.updateById();
-//
-//				menue();
-//
-//				break;
+			// Print Room Type information by user input 
+			case 14:
+				PrintTable PrintRoomTypeByIDTableObject = new PrintTable();
+				PrintRoomTypeByIDTableObject.printRoomTypeById();
+				
+				menue();
+				break;
 //
 //			// Insert data Into Employee table
 //			case 12:
