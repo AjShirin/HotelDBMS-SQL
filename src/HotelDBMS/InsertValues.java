@@ -128,5 +128,53 @@ public class InsertValues {
 			System.out.println(e.getMessage());
 		}
 	}// End insertIntoRoomsTable Function
+	
+	public static void insertIntoGuestsTable() throws Throwable {
+
+		String sqlGuests = "INSERT INTO Guests values (?,?,?,?,?,?,?,?,?)";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number of records you want to add :");
+		int number = sc.nextInt();
+
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+			DriverManager.registerDriver(driver);
+
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			pstmt = (PreparedStatement) con.prepareStatement(sqlGuests);
+
+			for (int i = 1; i <= number; i++) {
+
+				boolean numberToAddGuests = true;
+				String GuestName = "Jack";
+				String GuestPhone = "+96876243561";
+				
+				Random rn = new Random();
+				Integer randomNumber = (Integer) rn.nextInt(200);
+				Integer randomNumber1 = (Integer) rn.nextInt(150);
+				Integer guest_accompanying_members = randomNumber;
+				Integer guest_payment_amount = randomNumber1;
+				
+				pstmt.setString(1, GuestName);
+				pstmt.setString(2, GuestPhone);
+				pstmt.setInt(3, guest_accompanying_members);
+				pstmt.setInt(4, guest_payment_amount);
+				pstmt.setInt(5, 1);
+				pstmt.setInt(6, 13);
+				pstmt.setDate(7, new Date(System.currentTimeMillis()));
+				pstmt.setDate(8, new Date(System.currentTimeMillis()));
+				pstmt.setBoolean(9, numberToAddGuests);
+				pstmt.executeUpdate();
+			}
+
+			System.out.println(number + " Records Inserted Successfully!");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}// End insertIntoRoomsTable Function
 
 }// End of Insert Values Class
