@@ -19,11 +19,15 @@ public class Main {
 		System.out.println("10. Make first 10 hotels 'is_Active' = False                   |");
 		System.out.println("11. Make first 10 hotels 'is_Active' = True                    |");
 		System.out.println("********Room Type********                                      |");
-		System.out.println("12. Inser Records in  Room Type                                |");
+		System.out.println("12. Insert Records in  Room Type                               |");
 		System.out.println("13. Delete Room Type Record By ID                              |");
 		System.out.println("14. Print Room Type information by user input                  |");
 		System.out.println("15. Make 'is_Active'=False by selecting the ID with user Input |");
-
+		System.out.println("********Rooms********                                          |");
+		System.out.println("16. Insert Records in  Rooms                                   |");
+		System.out.println("17. Delete Room Type Record By ID                              |");
+		//System.out.println("18. Print Room Type information by user input                  |");
+//		System.out.println("15. Make 'is_Active'=False by selecting the ID with user Input |");
 
 //		System.out.println("12. Insert data Into Employee table                            |");
 //		System.out.println("13. Exit System                                                |");
@@ -65,7 +69,7 @@ public class Main {
 			case 2:
 				InsertValues insertHotelsObject = new InsertValues();
 				insertHotelsObject.insertIntoHotelTable(10000);
-				
+
 				menue();
 				break;
 
@@ -73,7 +77,7 @@ public class Main {
 			case 3:
 				InsertValues insertHotelsObject1 = new InsertValues();
 				insertHotelsObject1.insertIntoHotelTable(1);
-				
+
 				menue();
 				break;
 
@@ -84,7 +88,6 @@ public class Main {
 
 				menue();
 				break;
-				
 
 			// Print Hotel 10 Records Only
 			case 5:
@@ -158,36 +161,37 @@ public class Main {
 				menue();
 				break;
 
-			// Print Room Type information by user input 
+			// Print Room Type information by user input
 			case 14:
 				PrintTable PrintRoomTypeByIDTableObject = new PrintTable();
 				PrintRoomTypeByIDTableObject.printRoomTypeById();
-				
+
 				menue();
 				break;
-				
+
 			// Make 'is_Active'=False by selecting the ID with user Input
 			case 15:
 				ActivationUpdate activationUpdateOnRoomType = new ActivationUpdate();
 				activationUpdateOnRoomType.makeRoomTypeIsActiveFalseById();
-				
+
 				menue();
 				break;
-				
-				
-//
-//			// Insert data Into Employee table
-//			case 12:
-////				EmployeesTable insertValuesIntoEmployeesObject = new EmployeesTable();
-////				insertValuesIntoEmployeesObject.insertIntoEmployeeTable();
-//
-//				// insert values into rooms
-//				CreateRoomTable CreateRoomTableObject6 = new CreateRoomTable();
-//				CreateRoomTableObject6.insertIntoRoomsTable();
-//
-//				menue();
-//
-//				break;
+
+			// Insert data Into Rooms table
+			case 16:
+				InsertValues insertValuesIntoRoomsObject = new InsertValues();
+				insertValuesIntoRoomsObject.insertIntoRoomsTable();
+
+				menue();
+				break;
+
+			// Delete Room Type Record By ID 
+			case 17:
+				DeleteRecord deleteRecordByIdFromRoomsObject = new DeleteRecord();
+				deleteRecordByIdFromRoomsObject.deleteRoomById();
+
+				menue();
+				break;
 //
 //			// Exit the System
 ////			case 13:
