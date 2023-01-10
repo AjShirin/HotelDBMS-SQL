@@ -248,5 +248,38 @@ public class PrintTable {
 			System.err.println(e);
 		}
 	}// End OF printEmployeeTypeById Function
+	
+	public static void printEmployeesById() {
+
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+			DriverManager.registerDriver(driver);
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement st = con.createStatement();
+			Scanner sa = new Scanner(System.in);
+			System.out.println("Enter ID  that you want search for ? ");
+			int userInputIDE = sa.nextInt();
+			int count = 0;
+			String sqlE = "select * from Employees where id='" + userInputIDE + "'";
+			ResultSet rs = st.executeQuery(sqlE);
+			while (rs.next() && count <= userInputIDE) {
+				
+				int id = rs.getInt(1);
+				String employee_type_id = rs.getString(2);
+				int room_type_id = rs.getInt(3);
+				Date create_date = rs.getDate(4);
+				Date update_date = rs.getDate(5);
+				String is_Active = rs.getString(6);
+				System.out.println("Id :" + id + "||" + " " + "The employee Id is  :"+ " " + employee_type_id
+						+ "The Room Type Id   :"+ " " + room_type_id
+						+ "Created Date is  :" + create_date + "||" + " " + "Updated date is : " + update_date + "||"
+						+ "\n " + "The activation of the user is: " + is_Active);
+				count++;
+			}
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+	}// End OF printEmployeesById Function
 
 }// End of PrintTable Class

@@ -217,4 +217,39 @@ public class InsertValues {
 		}
 	}// End insertIntoEmployeeTypeTable Function
 
+	public static void insertIntoEmployeeTable() throws Throwable {
+
+		String sqlEmployee = "INSERT INTO Employees values (?,?,?,?,?)";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number of records you want to add :");
+		int number = sc.nextInt();
+
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+			DriverManager.registerDriver(driver);
+
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			pstmt = (PreparedStatement) con.prepareStatement(sqlEmployee);
+
+			for (int i = 1; i <= number; i++) {
+
+				boolean numberToAddEmployee = true;
+
+				pstmt.setInt(1, 1); // since it is forign key given the ID
+				pstmt.setInt(2, 1);// since it is forign key given the ID
+				pstmt.setDate(3, new Date(System.currentTimeMillis()));
+				pstmt.setDate(4, new Date(System.currentTimeMillis()));
+				pstmt.setBoolean(5, numberToAddEmployee);
+				pstmt.executeUpdate();
+			}
+
+			System.out.println(number + " Records Inserted Successfully!");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}// End of insertIntoEmployeeTable Function
+
 }// End of Insert Values Class

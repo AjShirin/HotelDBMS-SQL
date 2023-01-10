@@ -35,9 +35,12 @@ public class Main {
 		System.out.println("22. Insert Records in Employee Type Table                      |");
 		System.out.println("23. Delete Records in Employee Type Table                      |");
 		System.out.println("24. Print Employee Type information by user input              |");
-//		System.out.println("12. Insert data Into Employee table                            |");
-//		System.out.println("13. Exit System                                                |");
-//		System.out.println("_______________________________________________________________|");
+		System.out.println("********Employees********                                      |");
+		System.out.println("25. Insert data Into Employee Table                            |");
+		System.out.println("26. Delete Records in Employee Table                           |");
+		System.out.println("27. Print Employee Type information by user input              |");
+		System.out.println("28. Exit System                                                |");
+		System.out.println("_______________________________________________________________|");
 	}
 
 	public static void main(String[] args) throws Throwable {
@@ -227,11 +230,32 @@ public class Main {
 
 				menue();
 				break;
-//
-//			// Exit the System
-////			case 13:
-////				System.out.println("Exiting The System Bye See you Again :)!...");
-////				System.exit(0);
+
+			// Insert data Into Employee table
+			case 25:
+				InsertValues.insertIntoEmployeeTable();
+
+				menue();
+				break;
+
+			// Delete Records in Employees Table By ID
+			case 26:
+				DeleteRecord.deleteEmployeeById();
+
+				menue();
+				break;
+
+			// Print Records from Employees Table By ID
+			case 27:
+				PrintTable.printEmployeesById();
+
+				menue();
+				break;
+
+			// Exit the System
+			case 28:
+				System.out.println("Exiting The System Bye See you Again :)!...");
+				System.exit(0);
 
 			}
 
