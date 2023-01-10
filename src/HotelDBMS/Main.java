@@ -42,6 +42,7 @@ public class Main {
 		System.out.println("********New Task********                                       |");
 		System.out.println("28. Insert 10 hotels                                           |");
 		System.out.println("29. Guest Name End With E                                      |");
+		System.out.println("30. Rooms where guests are paying more than 1000               |");
 		// System.out.println("28. Exit System |");
 		System.out.println("_______________________________________________________________|");
 	}
@@ -268,6 +269,13 @@ public class Main {
 
 				menue();
 				break;
+				
+			case 30:
+				HotelManagement.guestPayingMoreThan100();
+
+				menue();
+				break;
+
 
 //			// Exit the System
 //			case 28:

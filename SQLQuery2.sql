@@ -43,3 +43,4 @@ INSERT INTO Rooms
 VALUES ( 1, 13,'2020-01-11','2023-01-01',1 );
 
 SELECT * FROM Guests WHERE guest_name Like '%E';
+SELECT * FROM Guests WHERE guest_payment_amount > 1000;
