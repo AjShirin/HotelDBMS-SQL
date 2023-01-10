@@ -128,7 +128,7 @@ public class InsertValues {
 			System.out.println(e.getMessage());
 		}
 	}// End insertIntoRoomsTable Function
-	
+
 	public static void insertIntoGuestsTable() throws Throwable {
 
 		String sqlGuests = "INSERT INTO Guests values (?,?,?,?,?,?,?,?,?)";
@@ -152,13 +152,13 @@ public class InsertValues {
 				boolean numberToAddGuests = true;
 				String GuestName = "Jack";
 				String GuestPhone = "+96876243561";
-				
+
 				Random rn = new Random();
 				Integer randomNumber = (Integer) rn.nextInt(200);
 				Integer randomNumber1 = (Integer) rn.nextInt(10005);
 				Integer guest_accompanying_members = randomNumber;
 				Integer guest_payment_amount = randomNumber1;
-				
+
 				pstmt.setString(1, GuestName);
 				pstmt.setString(2, GuestPhone);
 				pstmt.setInt(3, guest_accompanying_members);
@@ -176,5 +176,45 @@ public class InsertValues {
 			System.out.println(e.getMessage());
 		}
 	}// End insertIntoGuestsTable Function
+
+	public static void insertIntoEmployeeTypeTable() throws Throwable {
+
+		String sqlGuests = "INSERT INTO Employee_Type values (?,?,?,?)";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number of records you want to add :");
+		int number = sc.nextInt();
+
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+			DriverManager.registerDriver(driver);
+
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			pstmt = (PreparedStatement) con.prepareStatement(sqlGuests);
+
+			for (int i = 1; i <= number; i++) {
+
+				boolean numberToAddET = true;
+				String EmployeeType1 = "MANAGER";
+				String EmployeeType2 = "ATTENDANT";
+				String EmployeeType3 = "VALET";
+				String EmployeeType4 = "BUTLER";
+				String EmployeeType5 = "DIRECTOR";
+
+				pstmt.setString(1, EmployeeType5);
+				pstmt.setDate(2, new Date(System.currentTimeMillis()));
+				pstmt.setDate(3, new Date(System.currentTimeMillis()));
+				pstmt.setBoolean(4, numberToAddET);
+				pstmt.executeUpdate();
+			}
+
+			System.out.println(number + " Records Inserted Successfully!");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}// End insertIntoEmployeeTypeTable Function
 
 }// End of Insert Values Class

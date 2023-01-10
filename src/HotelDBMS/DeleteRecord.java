@@ -97,5 +97,26 @@ public class DeleteRecord {
 			System.err.println(ex);
 		}
 	}// End of deleteGuestById Function
+	
+	static void deleteEmployeeTypeById() throws IOException {
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+			DriverManager.registerDriver(driver);
+
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement st = con.createStatement();
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the ID Number you want to Delete :");
+			int userInputIDET = sc.nextInt();
+			String SQLET = "DELETE FROM Employee_Type WHERE id = '" + userInputIDET + "'";
+			System.out.println("Record : " + userInputIDET + " " + "deleted From Employee Type Table Successfully!! :)");
+			ResultSet rs = st.executeQuery(SQLET);
+
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}// End of deleteEmployeeTypeById Function
 
 }// End of Delete Record Function

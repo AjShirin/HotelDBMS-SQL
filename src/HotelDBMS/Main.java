@@ -33,8 +33,8 @@ public class Main {
 		System.out.println("21. Print Guest information by user input                      |");
 		System.out.println("********Employee Type********                                  |");
 		System.out.println("22. Insert Records in Employee Type Table                      |");
-//		System.out.println("20. Delete Records in Guests Table                             |");
-//		System.out.println("21. Print Guest information by user input                      |");
+		System.out.println("23. Delete Records in Employee Type Table                      |");
+		System.out.println("24. Print Employee Type information by user input              |");
 //		System.out.println("12. Insert data Into Employee table                            |");
 //		System.out.println("13. Exit System                                                |");
 //		System.out.println("_______________________________________________________________|");
@@ -51,180 +51,180 @@ public class Main {
 			int Menue = sc.nextInt();
 			switch (Menue) {
 
+			// Since The function is Static no need to create new object
+
 			// Creating all of the table
 			case 1:
-				// object chaining for creating all of the tables
-				CreateTables createAllTableObject = new CreateTables();
 				// create Hotel Table
-				createAllTableObject.createHotelTable();
+				CreateTables.createHotelTable();
 				// create Room Type Table
-				createAllTableObject.createRoomTypeTable();
+				CreateTables.createRoomTypeTable();
 				// create Rooms Table
-				createAllTableObject.createRoomsTable();
+				CreateTables.createRoomsTable();
 				// create Guests Table
-				createAllTableObject.createGuestsTable();
+				CreateTables.createGuestsTable();
 				// create Employees Type Table
-				createAllTableObject.createEmployeeTypeTable();
+				CreateTables.createEmployeeTypeTable();
 				// create Employees Table
-				createAllTableObject.createEmployeesTable();
+				CreateTables.createEmployeesTable();
 
 				menue();
 				break;
 
 			// Insert 10,000 hotels
 			case 2:
-				InsertValues insertHotelsObject = new InsertValues();
-				insertHotelsObject.insertIntoHotelTable(10000);
+				InsertValues.insertIntoHotelTable(10000);
 
 				menue();
 				break;
 
 			// Insert 1 hotel
 			case 3:
-				InsertValues insertHotelsObject1 = new InsertValues();
-				insertHotelsObject1.insertIntoHotelTable(1);
+				InsertValues.insertIntoHotelTable(1);
 
 				menue();
 				break;
 
 			// Delete Hotel Record By ID
 			case 4:
-				DeleteRecord DeleteRecordObject = new DeleteRecord();
-				DeleteRecordObject.deleteHotelById();
+				DeleteRecord.deleteHotelById();
 
 				menue();
 				break;
 
 			// Print Hotel 10 Records Only
 			case 5:
-				PrintTable printTableObject = new PrintTable();
-				printTableObject.readFromHotelTable(10);
+				PrintTable.readFromHotelTable(10);
 
 				menue();
 				break;
 
 			// Print Hotel Records By User Input
 			case 6:
-				PrintTable PrintTableObject = new PrintTable();
-				PrintTableObject.readFromTableByUser();
+				PrintTable.readFromTableByUser();
 
 				menue();
 				break;
 
 			// Update Hotel record by ID
 			case 7:
-				UpdateRecord updateHotelByIDObject = new UpdateRecord();
-				updateHotelByIDObject.updateHotelById();
+				UpdateRecord.updateHotelById();
 
 				menue();
 				break;
 
 			// Get Hotel record by ID
 			case 8:
-				PrintTable PrintHotelByIDObject = new PrintTable();
-				PrintHotelByIDObject.getHotelById();
+				PrintTable.getHotelById();
 
 				menue();
 				break;
 
 			// Make 'is_Active'=False by selecting the ID with user Input
 			case 9:
-				ActivationUpdate UpdateByIDObject = new ActivationUpdate();
-				UpdateByIDObject.makeIsActiveFalseById();
+				ActivationUpdate.makeIsActiveFalseById();
 
 				menue();
 				break;
 
 			// Make first 10 hotels 'is_Active' = False
 			case 10:
-				ActivationUpdate deactivateObject = new ActivationUpdate();
-				deactivateObject.makeIsActiveFalseByIdTen();
+				ActivationUpdate.makeIsActiveFalseByIdTen();
 
 				menue();
 				break;
 
 			// Make first 10 hotels 'is_Active' = True
 			case 11:
-				ActivationUpdate activateObject = new ActivationUpdate();
-				activateObject.makeIsActiveTrueByIdTen();
+				ActivationUpdate.makeIsActiveTrueByIdTen();
 
 				menue();
 				break;
 
 			// Insert Values into Room Type
 			case 12:
-				InsertValues insertValuesInRoomTypeObject = new InsertValues();
-				insertValuesInRoomTypeObject.insertIntoRoomsTypeTable();
+				InsertValues.insertIntoRoomsTypeTable();
 
 				menue();
 				break;
 
 			// Delete Room Type record by ID
 			case 13:
-				DeleteRecord deleteRoomTypeRecordObject = new DeleteRecord();
-				deleteRoomTypeRecordObject.deleteRoomTypeById();
+				DeleteRecord.deleteRoomTypeById();
 
 				menue();
 				break;
 
 			// Print Room Type information by user input
 			case 14:
-				PrintTable PrintRoomTypeByIDTableObject = new PrintTable();
-				PrintRoomTypeByIDTableObject.printRoomTypeById();
+				PrintTable.printRoomTypeById();
 
 				menue();
 				break;
 
 			// Make 'is_Active'=False by selecting the ID with user Input
 			case 15:
-				ActivationUpdate activationUpdateOnRoomType = new ActivationUpdate();
-				activationUpdateOnRoomType.makeRoomTypeIsActiveFalseById();
+				ActivationUpdate.makeRoomTypeIsActiveFalseById();
 
 				menue();
 				break;
 
 			// Insert data Into Rooms table
 			case 16:
-				InsertValues insertValuesIntoRoomsObject = new InsertValues();
-				insertValuesIntoRoomsObject.insertIntoRoomsTable();
+				InsertValues.insertIntoRoomsTable();
 
 				menue();
 				break;
 
 			// Delete Room Type Record By ID
 			case 17:
-				DeleteRecord deleteRecordByIdFromRoomsObject = new DeleteRecord();
-				deleteRecordByIdFromRoomsObject.deleteRoomById();
+				DeleteRecord.deleteRoomById();
 
 				menue();
 				break;
 
 			// Print Room Table information By ID
 			case 18:
-				PrintTable printRoomsTableByIDObject = new PrintTable();
-				printRoomsTableByIDObject.printRoomsById();
+				PrintTable.printRoomsById();
 
 				menue();
 				break;
 
 			case 19:
-				InsertValues insertIntoGuestsObject = new InsertValues();
-				insertIntoGuestsObject.insertIntoGuestsTable();
+				InsertValues.insertIntoGuestsTable();
 
 				menue();
 				break;
 
 			// Delete Guest Table Record By ID
 			case 20:
-				DeleteRecord deleteGuestRecordByID = new DeleteRecord();
-				deleteGuestRecordByID.deleteGuestById();
+				DeleteRecord.deleteGuestById();
 				menue();
 				break;
 
 			// Print Guest Table Record By ID
 			case 21:
-				PrintTable printGuestsInformationByID = new PrintTable();
-				printGuestsInformationByID.printGuestById();
+				PrintTable.printGuestById();
+				menue();
+				break;
+
+			// Insert Records in Employee Type Table
+			case 22:
+				InsertValues.insertIntoEmployeeTypeTable();
+				menue();
+				break;
+
+			// Delete Records in Employee Type Table By ID
+			case 23:
+				DeleteRecord.deleteEmployeeTypeById();
+
+				menue();
+				break;
+
+			// Print Records from Employee Type Table By ID
+			case 24:
+				PrintTable.printEmployeeTypeById();
+
 				menue();
 				break;
 //

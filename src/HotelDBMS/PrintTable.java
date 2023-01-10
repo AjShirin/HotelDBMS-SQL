@@ -206,9 +206,40 @@ public class PrintTable {
 				Date update_date = rs.getDate(9);
 				String is_Active = rs.getString(10);
 				System.out.println("Id :" + id + "||" + " " + "Guest name is  :" + guest_name + "||" + " "
-						+ "Guest Ohone Number is :" + guest_phone + "||" + " " +  "\n " + "Guest Accompanying Members is :"
-						+ guest_accompanying_members + "||" + " " + "Guest Payment Amount is :" + guest_payment_amount 
-						+ "||" + " " + "Room ID is :" + room_id + "||" + " " + "Hotel ID is :" + hotel_id + "||" + " " + "\n " 
+						+ "Guest Phone Number is :" + guest_phone + "||" + " " + "\n "
+						+ "Guest Accompanying Members is :" + guest_accompanying_members + "||" + " "
+						+ "Guest Payment Amount is :" + guest_payment_amount + "||" + " " + "Room ID is :" + room_id
+						+ "||" + " " + "Hotel ID is :" + hotel_id + "||" + " " + "\n " + "Created Date is  :"
+						+ create_date + "||" + " " + "Updated date is : " + update_date + "||" + "\n "
+						+ "The activation of the user is: " + is_Active);
+				count++;
+			}
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+	}// End OF printGuestById Function
+
+	public static void printEmployeeTypeById() {
+
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+			DriverManager.registerDriver(driver);
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement st = con.createStatement();
+			Scanner sa = new Scanner(System.in);
+			System.out.println("Enter ID  that you want search for ? ");
+			int userInputIDET = sa.nextInt();
+			int count = 0;
+			String sqlET = "select * from Employee_Type where id='" + userInputIDET + "'";
+			ResultSet rs = st.executeQuery(sqlET);
+			while (rs.next() && count <= userInputIDET) {
+				int id = rs.getInt(1);
+				String employee_type_name = rs.getString(2);
+				Date create_date = rs.getDate(3);
+				Date update_date = rs.getDate(4);
+				String is_Active = rs.getString(5);
+				System.out.println("Id :" + id + "||" + " " + "The employee Type name is  :"+ " " + employee_type_name
 						+ "Created Date is  :" + create_date + "||" + " " + "Updated date is : " + update_date + "||"
 						+ "\n " + "The activation of the user is: " + is_Active);
 				count++;
@@ -216,6 +247,6 @@ public class PrintTable {
 		} catch (Exception e) {
 			System.err.println(e);
 		}
-	}// End OF printGuestById Function
+	}// End OF printEmployeeTypeById Function
 
 }// End of PrintTable Class
