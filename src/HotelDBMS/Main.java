@@ -41,6 +41,7 @@ public class Main {
 		System.out.println("27. Print Employee Type information by user input              |");
 		System.out.println("********New Task********                                       |");
 		System.out.println("28. Insert 10 hotels                                           |");
+		System.out.println("29. Guest Name End With E                                      |");
 		// System.out.println("28. Exit System |");
 		System.out.println("_______________________________________________________________|");
 	}
@@ -257,6 +258,13 @@ public class Main {
 			// Insert 10 hotels
 			case 28:
 				InsertValues.insertIntoHotelTable(10);
+
+				menue();
+				break;
+			
+			//Guest Name End With E
+			case 29:
+				HotelManagement.guestEndWith_E();
 
 				menue();
 				break;

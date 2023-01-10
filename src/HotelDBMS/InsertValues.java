@@ -153,7 +153,7 @@ public class InsertValues {
 			for (int i = 1; i <= number; i++) {
 
 				boolean numberToAddGuests = true;
-				String GuestName = "Jack";
+				String GuestName = "Jizelle";
 				String GuestPhone = "+96876243561";
 
 				Random rn = new Random();
