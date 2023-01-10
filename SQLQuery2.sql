@@ -44,3 +44,7 @@ VALUES ( 1, 13,'2020-01-11','2023-01-01',1 );
 
 SELECT * FROM Guests WHERE guest_name Like '%E';
 SELECT * FROM Guests WHERE guest_payment_amount > 1000;
+SELECT COUNT(room_type_name) As Total_Dulex_Rooms FROM Guests INNER JOIN Rooms On E room_type_name = 'DELUXE';
+SELECT COUNT(*) As Total_Guest_Dulex_Rooms FROM Room_Type WHERE room_type_name = 'DELUXE';
+
+

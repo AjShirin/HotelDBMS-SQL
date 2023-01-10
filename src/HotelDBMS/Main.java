@@ -43,6 +43,7 @@ public class Main {
 		System.out.println("28. Insert 10 hotels                                           |");
 		System.out.println("29. Guest Name End With E                                      |");
 		System.out.println("30. Rooms where guests are paying more than 1000               |");
+		System.out.println("31. Count of guests who are staing in 'DELUXE' rooms           |");
 		// System.out.println("28. Exit System |");
 		System.out.println("_______________________________________________________________|");
 	}
@@ -269,9 +270,18 @@ public class Main {
 
 				menue();
 				break;
-				
+			
+			//Rooms where guests are paying more than 1000
 			case 30:
 				HotelManagement.guestPayingMoreThan100();
+
+				menue();
+				break;
+		
+				//Count of guests who are staing in 'DELUXE' rooms 
+				//Error
+			case 31:
+				HotelManagement.dulexRoom();
 
 				menue();
 				break;

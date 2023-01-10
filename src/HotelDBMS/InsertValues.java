@@ -166,7 +166,7 @@ public class InsertValues {
 				pstmt.setString(2, GuestPhone);
 				pstmt.setInt(3, guest_accompanying_members);
 				pstmt.setInt(4, guest_payment_amount);
-				pstmt.setInt(5, 1); // since it is forign key given the ID
+				pstmt.setInt(5, 12); // since it is forign key given the ID
 				pstmt.setInt(6, 13); // since it is forign key given the ID
 				pstmt.setDate(7, new Date(System.currentTimeMillis()));
 				pstmt.setDate(8, new Date(System.currentTimeMillis()));

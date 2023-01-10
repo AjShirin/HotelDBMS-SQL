@@ -69,5 +69,29 @@ public class HotelManagement {
 			System.err.println(ex);
 		}
 	}// End of guestEndWith_E 
+	
+	static void dulexRoom() throws IOException {
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+			DriverManager.registerDriver(driver);
+
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement st = con.createStatement();
+
+			String SQL = "SELECT COUNT(room_type_name) As Total_Dulex_Rooms FROM Room_Type \r\n" + "WHERE room_type_name = 'DELUXE'";
+			ResultSet rs = st.executeQuery(SQL);
+			while (rs.next()) {
+				
+					String Room_Name = rs.getString(1);
+					System.out.println("Count of guests who are staing in 'DELUXE' rooms :\r\n"
+							 + " " + Room_Name);
+				
+			}
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}// End of guestEndWith_E 
 
 }// End of Class
