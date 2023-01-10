@@ -11,8 +11,8 @@ select * FROM Employee_Type;
 select * FROM Employees;
 --------------
 -------Delete Records-------
-DELETE FROM Hotels Where id is not null;
-WHERE is_Active = 1;
+DELETE FROM Employees Where id is not null;
+
 --------------
 -------Drop Tables-------
 Drop Table Rooms;

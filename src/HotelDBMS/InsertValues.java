@@ -75,10 +75,13 @@ public class InsertValues {
 			pstmt = (PreparedStatement) con.prepareStatement(sqlRT);
 
 			for (int i = 1; i <= number; i++) {
+				String RoomTypeName = "STANDARD";
+				String RoomTypeName2 = "DELUXE";
+				String RoomTypeName3 = "SUITE";
 
 				boolean numberToAdd = true;
 				// pstmt.setInt(1, i);
-				pstmt.setInt(1, i);
+				pstmt.setString(1, RoomTypeName3);
 				pstmt.setDate(2, new Date(System.currentTimeMillis()));
 				pstmt.setDate(3, new Date(System.currentTimeMillis()));
 
