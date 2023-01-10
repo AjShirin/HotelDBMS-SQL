@@ -163,8 +163,8 @@ public class InsertValues {
 				pstmt.setString(2, GuestPhone);
 				pstmt.setInt(3, guest_accompanying_members);
 				pstmt.setInt(4, guest_payment_amount);
-				pstmt.setInt(5, 1);
-				pstmt.setInt(6, 13);
+				pstmt.setInt(5, 1); // since it is forign key given the ID
+				pstmt.setInt(6, 13); // since it is forign key given the ID
 				pstmt.setDate(7, new Date(System.currentTimeMillis()));
 				pstmt.setDate(8, new Date(System.currentTimeMillis()));
 				pstmt.setBoolean(9, numberToAddGuests);
@@ -175,6 +175,6 @@ public class InsertValues {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-	}// End insertIntoRoomsTable Function
+	}// End insertIntoGuestsTable Function
 
 }// End of Insert Values Class

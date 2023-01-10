@@ -29,7 +29,7 @@ public class Main {
 		System.out.println("18. Print Room information by user input                       |");
 		System.out.println("********Guests********                                         |");
 		System.out.println("19. Insert Records in Guests Table                             |");
-//		System.out.println("17. Delete Room Type Record By ID                              |");
+		System.out.println("20. Delete Records in Guests Table                             |");
 //		System.out.println("18. Print Room information by user input                       |");
 		
 //		System.out.println("12. Insert data Into Employee table                            |");
@@ -208,6 +208,12 @@ public class Main {
 				InsertValues insertIntoGuestsObject = new InsertValues();
 				insertIntoGuestsObject.insertIntoGuestsTable();
 
+				menue();
+				break;
+				
+			case 20:
+				DeleteRecord deleteGuestRecordByID = new DeleteRecord();
+				deleteGuestRecordByID.deleteGuestById();
 				menue();
 				break;
 //

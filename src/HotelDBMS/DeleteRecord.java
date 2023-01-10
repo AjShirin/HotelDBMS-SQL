@@ -55,7 +55,7 @@ public class DeleteRecord {
 			System.err.println(ex);
 		}
 	}// End of deleteRoomTypeById Function
-	
+
 	static void deleteRoomById() throws IOException {
 		Connection con = null;
 		try {
@@ -76,5 +76,26 @@ public class DeleteRecord {
 			System.err.println(ex);
 		}
 	}// End of deleteRoomById Function
+
+	static void deleteGuestById() throws IOException {
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+			DriverManager.registerDriver(driver);
+
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement st = con.createStatement();
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the ID Number you want to Delete :");
+			int userInputIDGuests = sc.nextInt();
+			String SQLGuests = "DELETE FROM Guests WHERE id = '" + userInputIDGuests + "'";
+			System.out.println("Record : " + userInputIDGuests + " " + "deleted From Guests Table Successfully!! :)");
+			ResultSet rs = st.executeQuery(SQLGuests);
+
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}// End of deleteGuestById Function
 
 }// End of Delete Record Function
