@@ -30,8 +30,11 @@ public class Main {
 		System.out.println("********Guests********                                         |");
 		System.out.println("19. Insert Records in Guests Table                             |");
 		System.out.println("20. Delete Records in Guests Table                             |");
-//		System.out.println("18. Print Room information by user input                       |");
-		
+		System.out.println("21. Print Guest information by user input                      |");
+		System.out.println("********Employee Type********                                  |");
+		System.out.println("22. Insert Records in Employee Type Table                      |");
+//		System.out.println("20. Delete Records in Guests Table                             |");
+//		System.out.println("21. Print Guest information by user input                      |");
 //		System.out.println("12. Insert data Into Employee table                            |");
 //		System.out.println("13. Exit System                                                |");
 //		System.out.println("_______________________________________________________________|");
@@ -188,32 +191,40 @@ public class Main {
 				menue();
 				break;
 
-			// Delete Room Type Record By ID 
+			// Delete Room Type Record By ID
 			case 17:
 				DeleteRecord deleteRecordByIdFromRoomsObject = new DeleteRecord();
 				deleteRecordByIdFromRoomsObject.deleteRoomById();
 
 				menue();
 				break;
-				
-				// Print Room Table information By ID 
+
+			// Print Room Table information By ID
 			case 18:
 				PrintTable printRoomsTableByIDObject = new PrintTable();
 				printRoomsTableByIDObject.printRoomsById();
 
 				menue();
 				break;
-				
+
 			case 19:
 				InsertValues insertIntoGuestsObject = new InsertValues();
 				insertIntoGuestsObject.insertIntoGuestsTable();
 
 				menue();
 				break;
-				
+
+			// Delete Guest Table Record By ID
 			case 20:
 				DeleteRecord deleteGuestRecordByID = new DeleteRecord();
 				deleteGuestRecordByID.deleteGuestById();
+				menue();
+				break;
+
+			// Print Guest Table Record By ID
+			case 21:
+				PrintTable printGuestsInformationByID = new PrintTable();
+				printGuestsInformationByID.printGuestById();
 				menue();
 				break;
 //

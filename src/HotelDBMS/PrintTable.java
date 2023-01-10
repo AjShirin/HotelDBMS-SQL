@@ -117,6 +117,7 @@ public class PrintTable {
 			System.err.println(e);
 		}
 	}// End OF getHotelById Function
+
 	public static void printRoomTypeById() {
 
 		Connection con = null;
@@ -128,7 +129,7 @@ public class PrintTable {
 			Scanner sa = new Scanner(System.in);
 			System.out.println("Enter ID  that you want search for ? ");
 			int userInputIDRT = sa.nextInt();
-			int count = 0;			
+			int count = 0;
 			String sqlRT = "select * from Room_Type where id='" + userInputIDRT + "'";
 			ResultSet rs = st.executeQuery(sqlRT);
 			while (rs.next() && count <= userInputIDRT) {
@@ -137,15 +138,16 @@ public class PrintTable {
 				Date create_date = rs.getDate(3);
 				Date update_date = rs.getDate(4);
 				String is_Active = rs.getString(5);
-				System.out.println("Id :" + id + "||" +  " " + "Created date is :" + create_date + "||"
-						+ " " + "Updated date is :" + update_date + "||" + "\n " + "The activation of the user is: "
-						+ is_Active);
+				System.out.println(
+						"Id :" + id + "||" + " " + "Created date is :" + create_date + "||" + " " + "Updated date is :"
+								+ update_date + "||" + "\n " + "The activation of the user is: " + is_Active);
 				count++;
 			}
 		} catch (Exception e) {
 			System.err.println(e);
 		}
 	}// End OF printRoomTypeById Function
+
 	public static void printRoomsById() {
 
 		Connection con = null;
@@ -157,7 +159,7 @@ public class PrintTable {
 			Scanner sa = new Scanner(System.in);
 			System.out.println("Enter ID  that you want search for ? ");
 			int userInputIDRooms = sa.nextInt();
-			int count = 0;			
+			int count = 0;
 			String sqlRooms = "select * from Rooms where id='" + userInputIDRooms + "'";
 			ResultSet rs = st.executeQuery(sqlRooms);
 			while (rs.next() && count <= userInputIDRooms) {
@@ -167,9 +169,9 @@ public class PrintTable {
 				Date create_date = rs.getDate(4);
 				Date update_date = rs.getDate(5);
 				String is_Active = rs.getString(6);
-				System.out.println("Id :" + id + "||" +  " " + "Room Type ID is  :" + room_type_id + "||"
-						+ " " + "hotel Id is :" + hotel_id + "||" + " " + "Created Date is :" + create_date + "||"+ 
-						" " + "Updated date is : " + update_date + "||"+ "\n " + "The activation of the user is: "
+				System.out.println("Id :" + id + "||" + " " + "Room Type ID is  :" + room_type_id + "||" + " "
+						+ "hotel Id is :" + hotel_id + "||" + " " + "Created Date is :" + create_date + "||" + " "
+						+ "Updated date is : " + update_date + "||" + "\n " + "The activation of the user is: "
 						+ is_Active);
 				count++;
 			}
@@ -177,5 +179,43 @@ public class PrintTable {
 			System.err.println(e);
 		}
 	}// End OF printRoomsById Function
-	
+
+	public static void printGuestById() {
+
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+			DriverManager.registerDriver(driver);
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement st = con.createStatement();
+			Scanner sa = new Scanner(System.in);
+			System.out.println("Enter ID  that you want search for ? ");
+			int userInputIDGuests = sa.nextInt();
+			int count = 0;
+			String sqlGuests = "select * from Guests where id='" + userInputIDGuests + "'";
+			ResultSet rs = st.executeQuery(sqlGuests);
+			while (rs.next() && count <= userInputIDGuests) {
+				int id = rs.getInt(1);
+				String guest_name = rs.getString(2);
+				String guest_phone = rs.getString(3);
+				int guest_accompanying_members = rs.getInt(4);
+				int guest_payment_amount = rs.getInt(5);
+				int room_id = rs.getInt(6);
+				int hotel_id = rs.getInt(7);
+				Date create_date = rs.getDate(8);
+				Date update_date = rs.getDate(9);
+				String is_Active = rs.getString(10);
+				System.out.println("Id :" + id + "||" + " " + "Guest name is  :" + guest_name + "||" + " "
+						+ "Guest Ohone Number is :" + guest_phone + "||" + " " +  "\n " + "Guest Accompanying Members is :"
+						+ guest_accompanying_members + "||" + " " + "Guest Payment Amount is :" + guest_payment_amount 
+						+ "||" + " " + "Room ID is :" + room_id + "||" + " " + "Hotel ID is :" + hotel_id + "||" + " " + "\n " 
+						+ "Created Date is  :" + create_date + "||" + " " + "Updated date is : " + update_date + "||"
+						+ "\n " + "The activation of the user is: " + is_Active);
+				count++;
+			}
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+	}// End OF printGuestById Function
+
 }// End of PrintTable Class

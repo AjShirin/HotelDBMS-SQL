@@ -155,7 +155,7 @@ public class InsertValues {
 				
 				Random rn = new Random();
 				Integer randomNumber = (Integer) rn.nextInt(200);
-				Integer randomNumber1 = (Integer) rn.nextInt(150);
+				Integer randomNumber1 = (Integer) rn.nextInt(10005);
 				Integer guest_accompanying_members = randomNumber;
 				Integer guest_payment_amount = randomNumber1;
 				
