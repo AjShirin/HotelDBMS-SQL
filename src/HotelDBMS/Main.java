@@ -44,6 +44,7 @@ public class Main {
 		System.out.println("29. Guest Name End With E                                      |");
 		System.out.println("30. Rooms where guests are paying more than 1000               |");
 		System.out.println("31. Count of guests who are staing in 'DELUXE' rooms           |");
+		System.out.println("32. Served by employee who have 'A' in their name              |");
 		// System.out.println("28. Exit System |");
 		System.out.println("_______________________________________________________________|");
 	}
@@ -282,6 +283,12 @@ public class Main {
 				//Error
 			case 31:
 				HotelManagement.dulexRoom();
+
+				menue();
+				break;
+				
+			case 32:
+				HotelManagement.employeesWithName_A();
 
 				menue();
 				break;

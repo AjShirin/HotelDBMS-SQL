@@ -92,6 +92,30 @@ public class HotelManagement {
 		} catch (Exception ex) {
 			System.err.println(ex);
 		}
-	}// End of guestEndWith_E 
+	}// End of dulexRoom 
 
+	static void employeesWithName_A() throws IOException {
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+
+			DriverManager.registerDriver(driver);
+
+			con = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement st = con.createStatement();
+		
+			String SQL = "SELECT * FROM Guests \r\n" + "WHERE guest_name Like '%A%'";
+			ResultSet rs = st.executeQuery(SQL);
+			while (rs.next()) {
+				
+					int GuestID = rs.getInt(1);
+					String GuestName = rs.getString(2);
+					System.out.println("id:"+ ""+GuestID +" "+"Guest Name who have 'A' in their Nameis :\r\n"
+							 + " " + GuestName);
+				
+			}
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}// End of dulexRoom 
 }// End of Class
