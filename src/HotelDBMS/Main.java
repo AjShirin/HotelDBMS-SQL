@@ -39,7 +39,9 @@ public class Main {
 		System.out.println("25. Insert data Into Employee Table                            |");
 		System.out.println("26. Delete Records in Employee Table                           |");
 		System.out.println("27. Print Employee Type information by user input              |");
-		System.out.println("28. Exit System                                                |");
+		System.out.println("********New Task********                                       |");
+		System.out.println("28. Insert 10 hotels                                           |");
+		// System.out.println("28. Exit System |");
 		System.out.println("_______________________________________________________________|");
 	}
 
@@ -251,11 +253,18 @@ public class Main {
 
 				menue();
 				break;
-
-			// Exit the System
+				
+			// Insert 10 hotels
 			case 28:
-				System.out.println("Exiting The System Bye See you Again :)!...");
-				System.exit(0);
+				InsertValues.insertIntoHotelTable(10);
+
+				menue();
+				break;
+
+//			// Exit the System
+//			case 28:
+//				System.out.println("Exiting The System Bye See you Again :)!...");
+//				System.exit(0);
 
 			}
 
